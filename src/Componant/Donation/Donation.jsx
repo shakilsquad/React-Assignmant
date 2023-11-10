@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { MyContext } from '../../Context/MyProvider';
+import ExtraCart from '../ExtraCart/ExtraCart';
 
 const Donation = () => {
+    const { addData, setAddData } = useContext(MyContext)
+    console.log(addData)
     return (
         <div className='container mx-auto'>
-            <h1 className='text-4xl'>donation section</h1>
+            <div className='grid md:grid-cols-2 gap-5'>
+                {
+                    addData.map(donationAdd => <ExtraCart key={donationAdd.id} donationAdd={donationAdd}></ExtraCart>)
+
+                }
+            </div>
+            
         </div>
     );
 };

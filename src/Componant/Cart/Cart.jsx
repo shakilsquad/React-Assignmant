@@ -3,18 +3,22 @@ import { Link } from 'react-router-dom';
 import { MyContext } from '../../Context/MyProvider';
 
 const Cart = ({ cart }) => {
-    const { cartData, setCartData } = useContext(MyContext)
+    const { cartData, setCartData ,addData, setAddData } = useContext(MyContext)
 
 
     const { id, picture, title, category, description, price, category_bg_color, card_bg_color, text_button_bg_color, text_title_color } = cart;
 
 
+    const addDatas = (data) =>{
+        setCartData(data)
+        setAddData([...addData,data])
+    }
     return (
 
         <Link to={`/donationDetails/${id}`}>
             <div style={{
                 background: `${card_bg_color}`
-            }} onClick={() => { setCartData(cart) }} >
+            }} onClick={() => { addDatas(cart) }} >
 
                 <div class="max-w-sm  border border-gray-200 rounded-lg shadow">
                     <a href="#">
@@ -27,7 +31,8 @@ const Cart = ({ cart }) => {
                     <div class="p-5">
                         <a
                             style={{
-                                background: `${text_title_color}`
+                                background: `${category_bg_color}`,
+                                color:`${text_title_color}`
                             }}
                             href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             {category}

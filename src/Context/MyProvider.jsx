@@ -7,10 +7,14 @@ const MyContext = createContext();
 
 // Create a provider component
 const MyProvider = ({ children }) => {
-  const [cartData, setCartData] = useState("hello");
+  const [cartData, setCartData] = useState("hel");
+  const [addData, setAddData] = useState([]);
 
   const info = {
-    cartData, setCartData
+    cartData,
+    setCartData,
+    addData,
+    setAddData
 }
   return (
     <MyContext.Provider value={info}>

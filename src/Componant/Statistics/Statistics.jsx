@@ -1,8 +1,10 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, PieChart, Pie } from 'recharts';
 
 
 const Statistics = () => {
+
     const data = [
         { name: "g1", value: 66.3 },
         { name: "g2", value: 33.3 },
@@ -10,7 +12,9 @@ const Statistics = () => {
     ]
     return (
         <div>
-
+            <Helmet>
+                <title>Donation | Statistics </title>
+            </Helmet>
             <PieChart width={400} height={400}>
                 <Pie
                     dataKey="value"

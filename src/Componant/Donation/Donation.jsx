@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { MyContext } from '../../Context/MyProvider';
 import ExtraCart from '../ExtraCart/ExtraCart';
+import { Helmet } from 'react-helmet-async';
 
 const Donation = () => {
     const { addData, setAddData } = useContext(MyContext)
@@ -9,6 +10,9 @@ const Donation = () => {
     const [dataLength, setDataLength] = useState(4);
     return (
         <div className='container mx-auto'>
+            <Helmet>
+                <title>Donation | Donation </title>
+            </Helmet>
             <div className='grid md:grid-cols-2 gap-5'>
                 {
                     addData.slice(0, dataLength).map(donationAdd => <ExtraCart key={donationAdd.id} donationAdd={donationAdd}></ExtraCart>)

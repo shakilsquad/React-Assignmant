@@ -11,28 +11,29 @@ import Donation from './Componant/Donation/Donation';
 import Statistics from './Componant/Statistics/Statistics';
 import DonationDetails from './Componant/DonationDetails/DonationDetails';
 import { MyProvider } from './Context/MyProvider';
+import { HelmetProvider } from 'react-helmet-async';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element:<Root></Root>,
-    children:[
+    element: <Root></Root>,
+    children: [
       {
-        path:'/',
-        element:<Home></Home>
+        path: '/',
+        element: <Home></Home>
       },
       {
-        path:'/donationDetails/:id',
-        element:<DonationDetails></DonationDetails>
+        path: '/donationDetails/:id',
+        element: <DonationDetails></DonationDetails>
       },
       {
-        path:'/donation',
-        element:<Donation></Donation>
+        path: '/donation',
+        element: <Donation></Donation>
       },
       {
-        path:'/statistics',
-        element:<Statistics></Statistics>
+        path: '/statistics',
+        element: <Statistics></Statistics>
       }
     ]
   },
@@ -40,9 +41,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-        <MyProvider>
-    <RouterProvider router={router} />
-
-        </MyProvider>
+    <MyProvider>
+      <HelmetProvider>
+        <RouterProvider router={router} />
+      </HelmetProvider>
+    </MyProvider>
   </React.StrictMode>,
 )

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Cart from '../Cart/Cart';
+import { Helmet } from 'react-helmet-async';
 
 
 const Home = () => {
@@ -26,6 +27,9 @@ const Home = () => {
     return (
 
         <div >
+            <Helmet>
+                <title>Donation | Home</title>
+            </Helmet>
             <div  className='bg-[#e6dada6f]'>
                 <div className='
                 m-auto w-[150px]  pt-[10px] md:w-[450px]  md:pt-[30px] lg:pb-[100px] lg:w-[750px]  lg:pt-[60px] pb-[10px] md:pb-[100px] items-center
